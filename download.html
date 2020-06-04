@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #xxx {
+            display: block;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .actions {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding:15px;
+        } 
+        .actions svg {
+            width: 1.5em;
+            height: 1.5em;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="xxx" width="300" height="300"></canvas>
+    <div id="actions" class="actions">
+    <svg id="download" class="save" aria-hidden="true">
+      <use xlink:href="#icon-save">save</use>
+    </svg>
+    </div>
+    <script src="//at.alicdn.com/t/font_1158778_0j8565ytrbas.js"></script>
+    <script>
+        var paintPad = document.getElementById('xxx')
+        download.onclick = function () {
+            var url = paintPad.toDataURL("pdf/pdf")
+            var a = document.createElement('a')
+            document.body.appendChild(a)
+            a.href = url
+            a.download = '下载'
+            a.target = '_blank'
+            a.click()
+        }
+    </script>
+</body>
+</html>
